@@ -23,9 +23,11 @@ Files Overview:
 Usage
 
 1. Configure Prerequisites
+
 Ensure that you have completed the prerequisites, including setting up the appropriate role, permissions, and AWS configuration.
 
 2. Install Required Packages
+
 Install the required Python packages by running the following command:
 
 pip install -r requirements.txt
