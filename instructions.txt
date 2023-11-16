@@ -1,0 +1,80 @@
+Amazon Bedrock
+
+Amazon Bedrock Overview:
+Amazon Bedrock serves as a centralized service provided by Amazon, offering seamless access to Language Model (LLM) models from leading AI companies and Amazon itself. This eliminates the need for separate installations of each model, providing a convenient and efficient way to leverage diverse AI capabilities under the guidance and roof of Amazon itself. 
+
+
+
+Accessing Models in Bedrock:
+To explore the available models in Bedrock, navigate to the Model Access option on the Bedrock service page. A variety of models, including those from AI21 Labs and Anthropic, can be viewed, each offering unique functionalities.
+
+AI21 Labs
+Jurassic-2
+
+Anthropic
+Claude v1.3
+Claude v2
+Claude Instant v1.2
+
+………………………………
+………………………………
+
+Requesting Model Access:
+But a small catch here is To access a specific model, submit a request on the Bedrock service page. Once granted, you will receive a notification, and the status will change to "Access granted." In the example provided, access requests for Claude and Claude Instant models have been successfully granted.
+Roles & Permissions
+
+After gaining access, ensure that the logged-in user has the necessary roles and permissions to interact with AWS Bedrock. Create a policy, as demonstrated in the "Pass Policy" example, and attach it to the user. Additionally, set up a role, as illustrated in the "Role Policy" example, to allow the specified user to assume the role.
+
+Policy Name :- Pass Policy
+
+The below can be found on the github also under the file “passpolicy.json”
+
+Replace the P_ACCOUNT_ID and P_ROLE_NAME with your respective account id and role name on the below section.
+
+{
+	"Version": "2012-10-17",
+	"Statement": [
+		{
+			"Effect": "Allow",
+			"Action": "iam:PassRole",
+			"Resource": "arn:aws:iam::P_ACCOUNT_ID:role/P_ROLE_NAME"
+		}
+	]
+}
+
+Similarly created a Role passrole and added the below section under trust policy for the specific user p_user_name.
+
+The below can be found on the github also under the file “rolepolicy.json”
+
+Replace the P_ACCOUNT_ID and P_USER with your respective aws account id and user on the below section.
+
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": "arn:aws:iam::P_ACCOUNT_ID:user/P_USER"
+            },
+            "Action": "sts:AssumeRole",
+            "Condition": {}
+        }
+    ]
+}
+
+AWS Configuration:
+To streamline interactions with AWS services, use the aws configure command in the Command Line Interface (CLI). This command prompts you to enter essential information such as the AWS Access Key ID, Secret Access Key, default region name, and default output format. Proper configuration ensures secure storage of credentials, enabling seamless use of the AWS CLI.
+Here's a quick guide on using the aws configure command:
+Open your terminal or command prompt.
+Run the following command:
+aws configure
+aws configure
+
+
+Enter the requested information:
+AWS Access Key ID
+AWS Secret Access Key
+Default region name
+Default output format (e.g., json or text)
+Once configured, the AWS CLI is ready for use, allowing you to interact with AWS services using the specified credentials.
+Feel free to leverage Amazon Bedrock and AWS CLI to enhance your AI capabilities and streamline interactions with AWS services.
