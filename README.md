@@ -29,6 +29,7 @@ Ensure that you have completed the prerequisites, including setting up the appro
 Install the required Python packages by running the following command:
 
 pip install -r requirements.txt
+
 3. Execute response.py
 
 Run the response.py script to interact with Bedrock. This script allows you to input your question, and it will provide you with the answer.
